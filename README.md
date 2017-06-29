@@ -2,9 +2,9 @@
 Beer list app
 
 # Technologies:
-javascript
-node.js
-express
-mongoDB 
++ javascript
++ node.js
++ express
++ mongoDB 
 
-Adding HTML and CSS
+## Adding HTML and CSS
