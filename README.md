@@ -1,10 +1,10 @@
-# tap-list
-Beer list app
+# Tap List
+Beer list web app
 
-# Technologies:
+## Technologies:
 + javascript
 + node.js
 + express
 + mongoDB 
 
-## Adding HTML and CSS
+## To add: HTML and CSS
