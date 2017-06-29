@@ -46,6 +46,27 @@ beersRoute.get(function(req, res) {
   });
 });
 
+// Create endpoint /api/beers/:beer_id for PUT
+beerRoute.put(function(req, res) {
+  // Use the Beer model to find a specific beer
+  Beer.findById(req.params.beer_id, function(err, beer) {
+    if (err)
+      res.send(err);
+
+    // Update the existing beer quantity
+    beer.quantity = req.body.quantity;
+
+    // Save the beer and check for errors
+    beer.save(function(err) {
+      if (err)
+        res.send(err);
+
+      res.json(beer);
+    });
+  });
+});
+
+
 // Create a new route with the /beers/:beer_id prefix
 var beerRoute = router.route('/beers/:beer_id');
 
@@ -59,6 +80,18 @@ beerRoute.get(function(req, res) {
     res.json(beer);
   });
 });
+
+// Create endpoint /api/beers/:beer_id for DELETE
+beerRoute.delete(function(req, res) {
+  // Use the Beer model to find a specific beer and remove it
+  Beer.findByIdAndRemove(req.params.beer_id, function(err) {
+    if (err)
+      res.send(err);
+
+    res.json({ message: 'Beer removed from the locker!' });
+  });
+});
+
 
   // Set the beer properties that came from the POST data
   beer.name = req.body.name;
